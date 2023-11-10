@@ -1,4 +1,12 @@
+------------
+git example 
+------------
 git clone --progress git@github.com:sharkymark/pandas_automl.git 
+
+
+-------------
+jupyter installation
+-------------
 
     PATH=$PATH:~/.local/bin
     pip install jupyter
@@ -22,13 +30,15 @@ resource "coder_app" "jupyter" {
 }
 
 -------------------
+vscode extension install
+----------------
 
-
-    # install VS Code extension into code-server
     SERVICE_URL=https://open-vsx.org/vscode/gallery ITEM_URL=https://open-vsx.org/vscode/item /tmp/code-server/bin/code-server --install-extension ms-toolsai.jupyter 
     SERVICE_URL=https://open-vsx.org/vscode/gallery ITEM_URL=https://open-vsx.org/vscode/item /tmp/code-server/bin/code-server --install-extension ms-python.python 
 
 
+-------------------
+metabase install
 -------------------
 
     sudo apt-get update && sudo apt-get install -y openjdk-17-jre-headless
