@@ -1,12 +1,13 @@
-    pip install jupyter
-    PATH=$PATH:~/.local/bin
-    jupyter server --ip=0.0.0.0 > /tmp/jupyter.log 2>&1 &
+git clone --progress git@github.com:sharkymark/pandas_automl.git 
 
+    PATH=$PATH:~/.local/bin
+    pip install jupyter
+    jupyter server --ip=0.0.0.0 > /tmp/jupyter.log 2>&1 &
 
 
 resource "coder_app" "jupyter" {
   agent_id      = coder_agent.main.id
-  slug          = "j"  
+  slug          = "jupyter"  
   display_name  = "jupyter"
   icon          = "/icon/jupyter.svg"
   url           = "http://localhost:8888/"
@@ -20,6 +21,7 @@ resource "coder_app" "jupyter" {
   }  
 }
 
+-------------------
 
 
     # install VS Code extension into code-server
@@ -50,7 +52,7 @@ resource "coder_app" "metabase" {
   display_name = "metabase"
   icon         = "https://static-00.iconduck.com/assets.00/smile-emoji-2048x2048-0zqwk4yb.png"
   url          = "http://localhost:3000"
-  subdomain    = false
+  subdomain    = true
   share        = "owner"
 
   healthcheck {
