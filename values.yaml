@@ -11,7 +11,6 @@ coder:
     - name: CODER_WILDCARD_ACCESS_URL
       value: "*.timgcp.demo.coder.com"
 
-    #demo
     - name: CODER_OIDC_ISSUER_URL                                               
       value: "https://gitlab.com"                                               
     - name: CODER_OIDC_EMAIL_DOMAIN                                             
@@ -26,15 +25,13 @@ coder:
         secretKeyRef:
           name: coder-oidc-client-secret
           key: value                                       
-    - name: CODER_AGENT_LOGGING_JSON                                            
-      value: "true"  
 
-    #demo
     - name: CODER_BROWSER_ONLY
       value: "true"
 
   tls:
     secretNames:
+      #wildcard cert for both the ACCESS_URL and WILDCARD_ACCESS_URL
       - bothdomains
 
   nodeSelector: 
@@ -46,9 +43,8 @@ coder:
     value: "ctrlplane"
     effect: "NoSchedule"
 
-  #demo
   replicaCount: 1
   
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     tag: "v2.3.3"
